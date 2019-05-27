@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HowToPlayFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/calendar_icon"
+                android:src="@drawable/calendar"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/plan_your_party"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh"
+                android:text="@string/instructions_1_body" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/invitation_icon"
+                android:src="@drawable/invitation"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_2_title"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_2_body"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/party_icon"
+                android:src="@drawable/party"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_3_title"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_3_body"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/murder_icon"
+                android:src="@drawable/murder"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_4_title"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_4_body"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/magnifying_glass_icon"
+                android:src="@drawable/magnifying_glass"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_5_title"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_5_body"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/trophy_icon"
+                android:src="@drawable/trophy"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_6_title"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/instructions_6_body"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

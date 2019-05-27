@@ -1,0 +1,46 @@
+<resources>
+    // Fragments
+    <string name="app_name">Murder &amp; Mysteries</string>
+    <string name="play">Play</string>
+    <string name="mysteries">Mysteries</string>
+    <string name="how_to_play">How to Play</string>
+    <string name="awards">Awards</string>
+    <string name="help">Help</string>
+    <string name="new_party">New Party</string>
+
+    // Mysteries Fragment
+    <string name="mystery_players">%1$d - %2$d</string>
+    <string name="buy_mystery">Buy Mystery</string>
+    <string name="host_party">Host Party</string>
+
+    // How to play Fragment
+    <string name="how_to_play_title">How to Play</string>
+    <string name="invitation_icon">Invitation icon</string>
+    <string name="plan_your_party">1. Plan your party</string>
+    <string name="calendar_icon">Calendar icon</string>
+    <string name="instructions_1_body">You choose a theme for your mystery, and decide on a night to host your party.</string>
+    <string name="instructions_2_title">2. Send invitations</string>
+    <string name="instructions_2_body">Invite your guests to install the app. You\'ll assign them a character, or let them choose their own.</string>
+    <string name="party_icon">Party icon</string>
+    <string name="instructions_3_title">3. Mystery night</string>
+    <string name="instructions_3_body">Your guests will arrive in character, and everyone will receive information and objectives.</string>
+    <string name="murder_icon">Murder icon</string>
+    <string name="instructions_4_title">4. Murder</string>
+    <string name="instructions_4_body">After everyone has had time to eat, drink and mingle, someone will be informed that they are the victim and another guest, the murderer.</string>
+    <string name="magnifying_glass_icon">Magnifying glass icon</string>
+    <string name="instructions_5_title">5. Solve the mystery</string>
+    <string name="instructions_5_body">Everyone will be presented with clues about the murder. You will attempt to use these clues, and the information you glean from others, to solve the mystery.</string>
+    <string name="trophy_icon">Trophy icon</string>
+    <string name="instructions_6_title">6. Accusations</string>
+    <string name="instructions_6_body">At the end of the night everyone will accuse someone of committing the murder. Prizes will be given out to those who guessed right, and other categories like best dressed and best actor.</string>
+    <string name="awards_description">Awards you earned from previous mystery parties will be shown here.</string>
+    <string name="having_problems">Having problems?</string>
+    <string name="report_an_issue">Report an issue</string>
+    <string name="love_this_app">Love this app?</string>
+    <string name="leave_a_rating">Leave a rating</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="players_icon">Players icon</string>
+
+</resources>

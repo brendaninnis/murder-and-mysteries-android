@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".fragments.MysteryDetailFragment">
+
+    <ScrollView
+        android:id="@+id/mystery_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mystery_splash_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="Murder and Dragons splash image"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/murder_and_dragons" />
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:paddingStart="@dimen/keyline_4"
+                          android:paddingEnd="@dimen/keyline_4"
+                          android:paddingBottom="80dp"
+                          android:background="@color/color_background"
+                          android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:text="Description"
+                        android:textAppearance="?textAppearanceHeadline6"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis sit amet arcu blandit commodo. Donec vestibulum augue eu sapien lacinia pretium. Duis non suscipit ligula. Etiam sit amet finibus urna, nec mattis orci. Curabitur nec tempus arcu. Mauris sit amet arcu aliquam, suscipit neque ac, dictum magna. Mauris lorem erat, semper non est at, vestibulum dignissim tortor. Vestibulum ornare erat sed neque vehicula, nec posuere felis luctus."
+                        android:textAppearance="?textAppearanceBody1"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:background="@color/color_primary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:text="Characters"
+                        android:textAppearance="?textAppearanceHeadline6"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis sit amet arcu blandit commodo. Donec vestibulum augue eu sapien lacinia pretium. Duis non suscipit ligula. Etiam sit amet finibus urna, nec mattis orci. Curabitur nec tempus arcu. Mauris sit amet arcu aliquam, suscipit neque ac, dictum magna. Mauris lorem erat, semper non est at, vestibulum dignissim tortor. Vestibulum ornare erat sed neque vehicula, nec posuere felis luctus."
+                        android:textAppearance="?textAppearanceBody1"
+                        android:alpha="?alphaEmphasisHigh" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/keyline_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mystery_button"
+                android:text="@string/buy_mystery"
+                android:transitionName="host_party_button" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
