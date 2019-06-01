@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
+            app:startDestination="@id/playFragment">
+
+    <fragment android:id="@+id/playFragment" android:name="ca.brendaninnis.murdermysteries.fragments.PlayFragment"
+              android:label="Play" tools:layout="@layout/fragment_play" >
+        <action android:id="@+id/action_playFragment_to_mysteriesFragment" app:destination="@id/mysteriesFragment"/>
+        <action android:id="@+id/action_playFragment_to_howToPlayFragment" app:destination="@id/howToPlayFragment"/>
+        <action android:id="@+id/action_playFragment_to_awardFragment" app:destination="@id/awardFragment"/>
+        <action android:id="@+id/action_playFragment_to_helpFragment" app:destination="@id/helpFragment"/>
+        <action android:id="@+id/action_playFragment_to_helpFragment2" app:destination="@id/helpFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/mysteriesFragment"
+              android:name="ca.brendaninnis.murdermysteries.fragments.MysteriesFragment"
+              android:label="Mysteries" tools:layout="@layout/fragment_mysteries">
+        <action android:id="@+id/action_mysteriesFragment_to_mysteryDetailFragment"
+                app:destination="@id/mysteryDetailFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/howToPlayFragment"
+              android:name="ca.brendaninnis.murdermysteries.fragments.HowToPlayFragment"
+              android:label="How to Play" tools:layout="@layout/fragment_how_to_play"/>
+
+    <fragment android:id="@+id/awardFragment" android:name="ca.brendaninnis.murdermysteries.fragments.AwardFragment"
+              android:label="Awards" tools:layout="@layout/fragment_award"/>
+
+    <fragment android:id="@+id/helpFragment" android:name="ca.brendaninnis.murdermysteries.fragments.HelpFragment"
+              android:label="Help" tools:layout="@layout/fragment_help"/>
+    <fragment android:id="@+id/mysteryDetailFragment"
+              android:name="ca.brendaninnis.murdermysteries.fragments.MysteryDetailFragment"
+              android:label="fragment_mystery_detail" tools:layout="@layout/fragment_mystery_detail">
+        <action android:id="@+id/action_mysteryDetailFragment_to_newPartyFragment"
+                app:destination="@id/newPartyFragment"/>
+    </fragment>
+    <fragment android:id="@+id/newPartyFragment"
+              android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
+              android:label="fragment_new_party" tools:layout="@layout/fragment_new_party"/>
+</navigation>
