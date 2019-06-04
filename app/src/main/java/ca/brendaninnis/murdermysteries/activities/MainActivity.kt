@@ -30,11 +30,7 @@ import ca.brendaninnis.murdermysteries.models.Mystery
 import ca.brendaninnis.murdermysteries.utils.DetailsTransition
 import java.util.*
 
-class MainActivity : AppCompatActivity(),
-        MysteriesFragment.OnFragmentInteractionListener,
-        PlayFragment.OnFragmentInteractionListener,
-        MysteryDetailFragment.OnFragmentInteractionListener,
-        NewPartyFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var mNavigationView: NavigationView
@@ -123,43 +119,5 @@ class MainActivity : AppCompatActivity(),
         } else {
             super.onBackPressed()
         }
-    }
-
-    override fun showMystery(mystery: Mystery, view: View) {
-//        val fragment = MysteryDetailFragment.newInstance(mystery).apply {
-//            sharedElementEnterTransition = DetailsTransition()
-//            enterTransition = Fade()
-//            sharedElementReturnTransition = DetailsTransition()
-//        }
-//
-//        supportFragmentManager.beginTransaction().run {
-//            addSharedElement(view.findViewById<ImageView>(R.id.mystery_splash_image), mystery.name)
-//            replace(R.id.main_content, fragment)
-//            addToBackStack(null)
-//            commit()
-//        }
-//
-//        title = mystery.name
-    }
-
-    override fun createParty(mystery: Mystery, splashImage: View, button: View) {
-//        val fragment = NewPartyFragment.newInstance(mystery).apply {
-//            sharedElementEnterTransition = DetailsTransition()
-//            enterTransition = Fade()
-//            sharedElementReturnTransition = DetailsTransition()
-//        }
-//
-//        supportFragmentManager.beginTransaction().run {
-////            addSharedElement(splashImage, mystery.name)
-//            addSharedElement(button, "host_party_button")
-//            replace(R.id.main_content, fragment)
-//            addToBackStack(null)
-//            commit()
-//        }
-//
-//        title = getString(R.string.new_party)
-    }
-
-    override fun partySelected() {
     }
 }

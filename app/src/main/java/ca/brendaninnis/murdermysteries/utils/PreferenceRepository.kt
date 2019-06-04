@@ -20,11 +20,23 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.util.*
 
 /**
  * A simple data repository for in-app settings.
  */
 class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
+
+  val userId: String
+    get() {
+      sharedPreferences.getString(PREFERENCE_USER_ID, null)?.let {
+        return it
+      }
+      UUID.randomUUID().toString().let {
+        sharedPreferences.edit().putString(PREFERENCE_USER_ID, it).apply()
+        return it
+      }
+    }
 
   val nightMode: Int
     get() = sharedPreferences.getInt(PREFERENCE_NIGHT_MODE, PREFERENCE_NIGHT_MODE_DEF_VAL)
@@ -67,6 +79,7 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
   }
 
   companion object {
+    private const val PREFERENCE_USER_ID = "preference_user_id"
     private const val PREFERENCE_NIGHT_MODE = "preference_night_mode"
     private const val PREFERENCE_NIGHT_MODE_DEF_VAL = AppCompatDelegate.MODE_NIGHT_NO
   }
