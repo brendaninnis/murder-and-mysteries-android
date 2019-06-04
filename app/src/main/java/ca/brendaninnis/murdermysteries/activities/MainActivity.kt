@@ -18,7 +18,10 @@ import android.view.View
 import android.widget.ImageView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import ca.brendaninnis.murdermysteries.App
 import ca.brendaninnis.murdermysteries.R
@@ -31,14 +34,12 @@ class MainActivity : AppCompatActivity(),
         MysteriesFragment.OnFragmentInteractionListener,
         PlayFragment.OnFragmentInteractionListener,
         MysteryDetailFragment.OnFragmentInteractionListener,
-        NewPartyFragment.OnFragmentInteractionListener,
-        FragmentManager.OnBackStackChangedListener {
+        NewPartyFragment.OnFragmentInteractionListener {
 
     private lateinit var mDrawerLayout: DrawerLayout
-    private lateinit var mDrawerArrowDrawable: DrawerArrowDrawable
     private lateinit var mNavigationView: NavigationView
     private lateinit var mNavController: NavController
-    private var mBackStackIsEmpty = true
+    private lateinit var mAppBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,19 +66,19 @@ class MainActivity : AppCompatActivity(),
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Set DrawerArrowDrawable to animate between menu and back icons
-        mDrawerArrowDrawable = DrawerArrowDrawable(this).also {
-            it.color = ContextCompat.getColor(this, R.color.color_on_secondary)
-        }
-        toolbar.navigationIcon = mDrawerArrowDrawable
-
-        supportFragmentManager.apply {
-            addOnBackStackChangedListener(this@MainActivity)
-        }
-
         // Set up the nav controller
+        mAppBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.playFragment,
+                R.id.mysteriesFragment,
+                R.id.howToPlayFragment,
+                R.id.awardFragment,
+                R.id.helpFragment
+            ), mDrawerLayout
+        )
+
         mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, mNavController, mDrawerLayout)
+        NavigationUI.setupActionBarWithNavController(this, mNavController, mAppBarConfiguration)
         NavigationUI.setupWithNavController(mNavigationView, mNavController);
 
         // Set navigation view item selected listener
@@ -110,44 +111,17 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(mNavController, mDrawerLayout)
-    }
+    override fun onOptionsItemSelected(item: MenuItem) = item.onNavDestinationSelected(
+        Navigation.findNavController(this, R.id.nav_host_fragment))
+            || super.onOptionsItemSelected(item)
+
+    override fun onSupportNavigateUp() = NavigationUI.navigateUp(mNavController, mAppBarConfiguration)
 
     override fun onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
-        }
-    }
-
-    override fun onBackStackChanged() {
-//        mBackStackIsEmpty = supportFragmentManager.backStackEntryCount == 0
-//
-//        // Animate the DrawerArrowDrawable
-//        if (mBackStackIsEmpty) {
-//            ObjectAnimator.ofFloat(mDrawerArrowDrawable, "progress", 0f).start()
-//            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-//            title = getString(R.string.app_name)
-//            title = mNavigationView.checkedItem?.title
-//        } else {
-//            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-//            ObjectAnimator.ofFloat(mDrawerArrowDrawable, "progress", 1f).start()
-//        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                if (mBackStackIsEmpty) {
-                    mDrawerLayout.openDrawer(GravityCompat.START)
-                } else {
-                    onBackPressed()
-                }
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 
