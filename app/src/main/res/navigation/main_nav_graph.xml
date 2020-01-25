@@ -24,12 +24,16 @@
 
     <fragment android:id="@+id/helpFragment" android:name="ca.brendaninnis.murdermysteries.fragments.HelpFragment"
               android:label="Help" tools:layout="@layout/fragment_help"/>
+
     <fragment android:id="@+id/mysteryDetailFragment"
               android:name="ca.brendaninnis.murdermysteries.fragments.MysteryDetailFragment"
-              android:label="fragment_mystery_detail" tools:layout="@layout/fragment_mystery_detail">
+              android:label="{title}" tools:layout="@layout/fragment_mystery_detail">
         <action android:id="@+id/action_mysteryDetailFragment_to_newPartyFragment"
                 app:destination="@id/newPartyFragment"/>
+        <argument android:name="mysteryId" app:argType="integer" android:defaultValue="0"/>
+        <argument android:name="title" app:argType="string" android:defaultValue="Mystery"/>
     </fragment>
+
     <fragment android:id="@+id/newPartyFragment"
               android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
               android:label="fragment_new_party" tools:layout="@layout/fragment_new_party"/>

@@ -6,14 +6,12 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 
+class RecyclerItemTouchListener(context: Context, recyclerView: RecyclerView, private val mListener: OnItemClickListener?) : RecyclerView.OnItemTouchListener {
 
-class MysteryItemClickListener(context: Context, recyclerView: RecyclerView, private val mListener: OnItemClickListener?) : RecyclerView.OnItemTouchListener {
-
-    internal var mGestureDetector: GestureDetector
+    private var mGestureDetector: GestureDetector
 
     interface OnItemClickListener {
         fun onItemClick(view: View, position: Int)
-
         fun onLongItemClick(view: View?, position: Int)
     }
 

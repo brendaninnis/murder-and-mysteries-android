@@ -1,20 +1,5 @@
-/*
- * Copyright 2019 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-package io.material.materialthemebuilder.data
+package ca.brendaninnis.murdermysteries.utils
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
@@ -22,9 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import java.util.*
 
-/**
- * A simple data repository for in-app settings.
- */
 class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
 
   val userId: String
@@ -44,6 +26,15 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
   private val _nightModeLive: MutableLiveData<Int> = MutableLiveData()
   val nightModeLive: LiveData<Int>
     get() = _nightModeLive
+
+  var allowNotifications: Boolean = sharedPreferences.getBoolean(PREFERENCE_NOTIFICATIONS, true)
+    set(value) {
+      sharedPreferences.edit().putBoolean(PREFERENCE_NOTIFICATIONS, value).apply()
+    }
+
+  private val _allowNotificationsLive: MutableLiveData<Boolean> = MutableLiveData()
+  val allowNotificationsLive: LiveData<Boolean>
+    get() = _allowNotificationsLive
 
   var isDarkTheme: Boolean = false
     get() = nightMode == AppCompatDelegate.MODE_NIGHT_YES
@@ -67,6 +58,9 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
           _nightModeLive.value = nightMode
           _isDarkThemeLive.value = isDarkTheme
         }
+        PREFERENCE_NOTIFICATIONS -> {
+          _allowNotificationsLive.value = allowNotifications
+        }
       }
     }
 
@@ -74,12 +68,14 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
     // Init preference LiveData objects.
     _nightModeLive.value = nightMode
     _isDarkThemeLive.value = isDarkTheme
+    _allowNotificationsLive.value = allowNotifications
 
     sharedPreferences.registerOnSharedPreferenceChangeListener(preferenceChangedListener)
   }
 
   companion object {
     private const val PREFERENCE_USER_ID = "preference_user_id"
+    private const val PREFERENCE_NOTIFICATIONS = "preference_notifications"
     private const val PREFERENCE_NIGHT_MODE = "preference_night_mode"
     private const val PREFERENCE_NIGHT_MODE_DEF_VAL = AppCompatDelegate.MODE_NIGHT_NO
   }

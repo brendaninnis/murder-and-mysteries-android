@@ -13,7 +13,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 class HelpFragment : Fragment() {
 
-    private lateinit var helpSwitch: SwitchMaterial
+    private lateinit var notificationSwitch: SwitchMaterial
     private lateinit var darkModeSwitch: SwitchMaterial
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -21,10 +21,20 @@ class HelpFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_help, container, false)
 
-        helpSwitch = view.findViewById(R.id.help_switch)
+        notificationSwitch = view.findViewById(R.id.help_switch)
         darkModeSwitch = view.findViewById(R.id.dark_mode_switch)
 
         val preferenceRepository = (requireActivity().application as App).preferenceRepository
+
+        preferenceRepository.allowNotificationsLive.observe(this, Observer { allowNotifications ->
+            allowNotifications?.let {
+                notificationSwitch.isChecked = it
+            }
+        })
+
+        notificationSwitch.setOnCheckedChangeListener { _, checked ->
+            preferenceRepository.allowNotifications = checked
+        }
 
         preferenceRepository.isDarkThemeLive.observe(this, Observer { isDarkTheme ->
             isDarkTheme?.let { darkModeSwitch.isChecked = it }
@@ -35,10 +45,5 @@ class HelpFragment : Fragment() {
         }
 
         return view
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = HelpFragment()
     }
 }

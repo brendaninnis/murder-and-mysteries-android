@@ -1,34 +1,20 @@
 package ca.brendaninnis.murdermysteries.activities
 
-import android.animation.ObjectAnimator
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
-import androidx.fragment.app.FragmentManager
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
-import android.transition.Fade
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
 import ca.brendaninnis.murdermysteries.App
 import ca.brendaninnis.murdermysteries.R
-import ca.brendaninnis.murdermysteries.fragments.*
-import ca.brendaninnis.murdermysteries.models.Mystery
-import ca.brendaninnis.murdermysteries.utils.DetailsTransition
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,13 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         mNavigationView = findViewById(R.id.nav_view)
         mDrawerLayout = findViewById(R.id.drawer_layout)
-
-        // New users should get a UUID
-        with(getSharedPreferences("meta", Context.MODE_PRIVATE)) {
-            if (getString("user_id", null) == null) {
-                edit().putString("user_id", UUID.randomUUID().toString()).apply()
-            }
-        }
 
         // Observe night mode preference and set the delegate's local night mode
         (application as App).preferenceRepository

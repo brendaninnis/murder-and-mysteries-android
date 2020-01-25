@@ -2,7 +2,7 @@ package ca.brendaninnis.murdermysteries
 
 import android.app.Application
 import android.content.Context
-import io.material.materialthemebuilder.data.PreferenceRepository
+import ca.brendaninnis.murdermysteries.utils.PreferenceRepository
 
 class App : Application() {
     lateinit var preferenceRepository: PreferenceRepository
