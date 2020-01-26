@@ -8,16 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ScrollView
-import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.transition.ChangeBounds
-import androidx.transition.ChangeImageTransform
-import androidx.transition.Explode
 import androidx.transition.TransitionInflater
 import ca.brendaninnis.murdermysteries.R
+import ca.brendaninnis.murdermysteries.fragments.MysteryDetailFragmentDirections.Companion.actionMysteryDetailFragmentToNewPartyFragment
 import ca.brendaninnis.murdermysteries.viewmodels.MysteryViewModel
 import com.google.android.material.button.MaterialButton
 
@@ -80,6 +77,8 @@ class MysteryDetailFragment : Fragment() {
                 // FAB initiates purchase flow or host party
                 button.setOnClickListener {
                     Log.w("MM", "Buy Mystery ${mystery.name}")
+                    val action = actionMysteryDetailFragmentToNewPartyFragment(mysteryId = mystery.id)
+                    findNavController().navigate(action)
                 }
             }
         })

@@ -10,7 +10,7 @@
             app:shapeAppearance="@style/ShapeAppearance.MyTheme.FloatingActionButton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/play_fab"
             android:layout_marginEnd="@dimen/keyline_4"
             android:layout_marginBottom="@dimen/keyline_4"
             android:src="@android:drawable/ic_input_add"

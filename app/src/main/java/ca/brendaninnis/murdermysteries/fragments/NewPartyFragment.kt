@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 import ca.brendaninnis.murdermysteries.models.Mystery
 import com.google.android.material.textfield.TextInputEditText
@@ -14,25 +17,37 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import java.util.*
 
 import ca.brendaninnis.murdermysteries.R
-
-private const val MYSTERY_PARAM = "mystery_param"
+import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.fragment_new_party.*
 
 class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
+    private val args: NewPartyFragmentArgs by navArgs()
     private lateinit var dateEditText: TextInputEditText
     private var mystery: Mystery? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            mystery = it.getParcelable(MYSTERY_PARAM)
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_new_party, container, false)
+
+        if (args.mysteryId >= 0) {
+            mystery = listOf(
+                Mystery(0, "Murder and Dragons", 8, 20, R.drawable.murder_and_dragons),
+                Mystery(1, "Avada Kedavra", 6, 16, R.drawable.avadakedavra),
+                Mystery(2, "The Games Night Murder", 10, 24, R.drawable.gamesnight)
+            )[args.mysteryId]
+        }
+
+        with (view.findViewById<TextInputEditText>(R.id.new_party_mystery_edittext)) {
+            showSoftInputOnFocus = false
+            setText(mystery?.name)
+            setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    findNavController().navigate(R.id.mysteriesFragment)
+                }
+            }
+        }
 
         dateEditText = view.findViewById(R.id.new_party_date_edittext)
         dateEditText.showSoftInputOnFocus = false
@@ -98,15 +113,5 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                 show(it, "Timepickerdialog")
             }
         }
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(mystery: Mystery) =
-                NewPartyFragment().apply {
-                    arguments = Bundle().apply {
-                        putParcelable(MYSTERY_PARAM, mystery )
-                    }
-                }
     }
 }

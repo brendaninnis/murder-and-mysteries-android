@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import ca.brendaninnis.murdermysteries.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PlayFragment : Fragment() {
 
@@ -20,6 +22,10 @@ class PlayFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_play, container, false)
+
+        view.findViewById<FloatingActionButton>(R.id.play_fab).setOnClickListener {
+            findNavController().navigate(R.id.newPartyFragment)
+        }
 
         viewManager = LinearLayoutManager(context)
         viewAdapter = PartiesAdapter()

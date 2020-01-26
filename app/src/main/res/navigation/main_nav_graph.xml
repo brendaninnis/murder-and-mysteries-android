@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
-            app:startDestination="@id/newPartyFragment">
+            app:startDestination="@id/playFragment">
 
     <fragment android:id="@+id/playFragment" android:name="ca.brendaninnis.murdermysteries.fragments.PlayFragment"
               android:label="Play" tools:layout="@layout/fragment_play" >
@@ -38,5 +38,10 @@
             android:id="@+id/newPartyFragment"
             android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
             android:label="Host a murder mystery party"
-            tools:layout="@layout/fragment_new_party" />
+            tools:layout="@layout/fragment_new_party" >
+        <argument
+                android:name="mysteryId"
+                app:argType="integer"
+                android:defaultValue="-1" />
+    </fragment>
 </navigation>
