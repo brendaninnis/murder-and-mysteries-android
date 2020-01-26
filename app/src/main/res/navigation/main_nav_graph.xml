@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
-            app:startDestination="@id/playFragment">
+            app:startDestination="@id/newPartyFragment">
 
     <fragment android:id="@+id/playFragment" android:name="ca.brendaninnis.murdermysteries.fragments.PlayFragment"
               android:label="Play" tools:layout="@layout/fragment_play" >
@@ -17,7 +17,7 @@
 
     <fragment android:id="@+id/howToPlayFragment"
               android:name="ca.brendaninnis.murdermysteries.fragments.HowToPlayFragment"
-              android:label="How to Play" tools:layout="@layout/fragment_how_to_play"/>
+              android:label="How to play" tools:layout="@layout/fragment_how_to_play"/>
 
     <fragment android:id="@+id/awardFragment" android:name="ca.brendaninnis.murdermysteries.fragments.AwardFragment"
               android:label="Awards" tools:layout="@layout/fragment_award"/>
@@ -34,7 +34,9 @@
         <argument android:name="title" app:argType="string" android:defaultValue="Mystery"/>
     </fragment>
 
-    <fragment android:id="@+id/newPartyFragment"
-              android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
-              android:label="fragment_new_party" tools:layout="@layout/fragment_new_party"/>
+    <fragment
+            android:id="@+id/newPartyFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
+            android:label="Host a murder mystery party"
+            tools:layout="@layout/fragment_new_party" />
 </navigation>

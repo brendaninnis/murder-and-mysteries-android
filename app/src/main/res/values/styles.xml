@@ -26,6 +26,9 @@
     <!--Toolbar-->
     <style name="Widget.MyTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary"/>
 
+    <!-- Material DateTimePicker -->
+    <style name="mdtp_ActionButton.Text" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
+
 </resources>
 
 

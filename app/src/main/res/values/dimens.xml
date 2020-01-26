@@ -27,6 +27,7 @@
     <dimen name="elevation_default_top_app_bar">4dp</dimen>
 
     <dimen name="margin">16dp</dimen>
+    <dimen name="margin2">32dp</dimen>
     <dimen name="form_field_margin">8dp</dimen>
 
     <!--Emphasis modifiers for "on" colors-->

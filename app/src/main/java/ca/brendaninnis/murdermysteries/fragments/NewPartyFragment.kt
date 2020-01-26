@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 
 import ca.brendaninnis.murdermysteries.models.Mystery
@@ -20,14 +19,13 @@ private const val MYSTERY_PARAM = "mystery_param"
 
 class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
-    private lateinit var splashImage: ImageView
     private lateinit var dateEditText: TextInputEditText
     private var mystery: Mystery? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            mystery = it.getParcelable<Mystery>(MYSTERY_PARAM)
+            mystery = it.getParcelable(MYSTERY_PARAM)
         }
     }
 
@@ -35,14 +33,6 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_new_party, container, false)
-
-        splashImage = view.findViewById(R.id.mystery_splash_image)
-        with(splashImage) {
-            mystery?.let {
-                setImageDrawable(context.getDrawable(it.splashImageId))
-                transitionName = it.name
-            }
-        }
 
         dateEditText = view.findViewById(R.id.new_party_date_edittext)
         dateEditText.showSoftInputOnFocus = false
@@ -60,6 +50,9 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                         setCancelColor("#eeeeee")
                         version = DatePickerDialog.Version.VERSION_2
                         isThemeDark = true
+                        setOnCancelListener {
+                            dateEditText.clearFocus()
+                        }
                         show(it, "Datepickerdialog")
                     }
                 }
@@ -76,8 +69,8 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
         val period = if (hourOfDay > 12) "p.m." else "a.m."
 
         with(dateEditText) {
-            setText(text.toString() + "$hourOfDayTwelve:$minutes $period")
             clearFocus()
+            setText(text.toString() + "$hourOfDayTwelve:$minutes $period")
         }
     }
 
@@ -98,6 +91,10 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                 setCancelColor("#eeeeee")
                 version = TimePickerDialog.Version.VERSION_2;
                 isThemeDark = true
+                setOnCancelListener {
+                    dateEditText.setText("")
+                    dateEditText.clearFocus()
+                }
                 show(it, "Timepickerdialog")
             }
         }
