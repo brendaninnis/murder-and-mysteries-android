@@ -62,6 +62,16 @@
                 android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <View
+            android:id="@+id/new_party_mystery_target"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="mysteryTapped"
+            app:layout_constraintBottom_toBottomOf="@+id/new_party_mystery_field"
+            app:layout_constraintEnd_toEndOf="@+id/new_party_mystery_field"
+            app:layout_constraintStart_toStartOf="@+id/new_party_mystery_field"
+            app:layout_constraintTop_toTopOf="@+id/new_party_mystery_field" />
+
     <ImageView
         android:id="@+id/new_party_name_icon"
         android:layout_width="24dp"
@@ -132,6 +142,16 @@
                 android:inputType="datetime"
                 android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+            android:id="@+id/new_party_date_target"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="dateTapped"
+            app:layout_constraintBottom_toBottomOf="@+id/new_party_date_field"
+            app:layout_constraintEnd_toEndOf="@+id/new_party_date_field"
+            app:layout_constraintStart_toStartOf="@+id/new_party_date_field"
+            app:layout_constraintTop_toTopOf="@+id/new_party_date_field" />
 
     <ImageView
         android:id="@+id/new_party_place_icon"
