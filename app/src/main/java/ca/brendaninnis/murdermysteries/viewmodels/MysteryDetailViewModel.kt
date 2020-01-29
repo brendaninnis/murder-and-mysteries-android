@@ -3,6 +3,7 @@ package ca.brendaninnis.murdermysteries.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import ca.brendaninnis.murdermysteries.models.Mystery
 import ca.brendaninnis.murdermysteries.R
 
@@ -18,4 +19,10 @@ class MysteryDetailViewModel(private val mysteryId: Int) : ViewModel() {
     }
     val mystery: LiveData<Mystery>
     get() = _mystery
+
+    class MysteryDetailViewModelFactory(val mysteryId: Int) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return MysteryDetailViewModel(mysteryId) as T
+        }
+    }
 }

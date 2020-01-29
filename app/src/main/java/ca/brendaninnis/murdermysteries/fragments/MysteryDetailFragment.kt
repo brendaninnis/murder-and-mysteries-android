@@ -58,7 +58,7 @@ class MysteryDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Update the UI with the Mystery
-        val model: MysteryDetailViewModel by viewModels()
+        val model: MysteryDetailViewModel by viewModels{ MysteryDetailViewModel.MysteryDetailViewModelFactory(args.mysteryId) }
 
         subscribeToModel(model)
     }
