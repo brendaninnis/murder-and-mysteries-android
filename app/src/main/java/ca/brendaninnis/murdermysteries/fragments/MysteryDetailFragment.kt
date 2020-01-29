@@ -8,14 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ScrollView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.fragments.MysteryDetailFragmentDirections.Companion.actionMysteryDetailFragmentToNewPartyFragment
-import ca.brendaninnis.murdermysteries.viewmodels.MysteryViewModel
+import ca.brendaninnis.murdermysteries.viewmodels.MysteryDetailViewModel
 import com.google.android.material.button.MaterialButton
 
 class MysteryDetailFragment : Fragment() {
@@ -58,13 +58,12 @@ class MysteryDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Update the UI with the Mystery
-        val model = ViewModelProviders.of(this, MysteryViewModel.Factory(args.mysteryId))
-            .get(MysteryViewModel::class.java)
+        val model: MysteryDetailViewModel by viewModels()
 
         subscribeToModel(model)
     }
 
-    private fun subscribeToModel(model: MysteryViewModel) {
+    private fun subscribeToModel(model: MysteryDetailViewModel) {
         model.mystery.observe(viewLifecycleOwner, Observer { mystery ->
             mystery?.let {
 

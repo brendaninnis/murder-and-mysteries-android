@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.adapters.MysteriesAdapter
 import ca.brendaninnis.murdermysteries.utils.RecyclerItemTouchListener
-import ca.brendaninnis.murdermysteries.viewmodels.MysteryListViewModel
+import ca.brendaninnis.murdermysteries.viewmodels.MysteriesViewModel
 
 class MysteriesFragment : Fragment() {
 
@@ -59,11 +59,9 @@ class MysteriesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val model = activity?.run {
-            ViewModelProviders.of(this).get(MysteryListViewModel::class.java)
-        } ?: throw Exception("Invalid Activity")
+        val model: MysteriesViewModel by viewModels()
 
-        model.mysteries.observe(this, Observer { mysteries ->
+        model.mysteries.observe(viewLifecycleOwner, Observer { mysteries ->
             mysteries?.let { viewAdapter.submitList(it) }
         })
     }

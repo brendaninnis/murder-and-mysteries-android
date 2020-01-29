@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.models.Mystery
 
-class MysteryListViewModel : ViewModel() {
+class MysteriesViewModel : ViewModel() {
     private val _mysteries: MutableLiveData<List<Mystery>> by lazy {
         MutableLiveData<List<Mystery>>().also {
             it.value = listOf(
