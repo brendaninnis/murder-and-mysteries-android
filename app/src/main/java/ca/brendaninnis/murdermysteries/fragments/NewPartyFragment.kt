@@ -18,13 +18,17 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import java.util.*
 
 import ca.brendaninnis.murdermysteries.R
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_new_party.*
 
 class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private val args: NewPartyFragmentArgs by navArgs()
+    private lateinit var mysteryEditText: TextInputEditText
+    private lateinit var nameEditText: TextInputEditText
     private lateinit var dateEditText: TextInputEditText
+    private lateinit var placeEditText: TextInputEditText
     private var mystery: Mystery? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +46,10 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
 
         view.findViewById<TextInputEditText>(R.id.new_party_mystery_edittext).setText(mystery?.name)
 
+        mysteryEditText = view.findViewById(R.id.new_party_mystery_edittext)
+        nameEditText = view.findViewById(R.id.new_party_name_edittext)
         dateEditText = view.findViewById(R.id.new_party_date_edittext)
+        placeEditText = view.findViewById(R.id.new_party_place_edittext)
 
         view.findViewById<View>(R.id.new_party_date_target).setOnClickListener {
             dateTapped()
@@ -50,6 +57,10 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
 
         view.findViewById<View>(R.id.new_party_mystery_target).setOnClickListener {
             mysteryTapped()
+        }
+
+        view.findViewById<MaterialButton>(R.id.new_party_submit_button).setOnClickListener {
+            createParty()
         }
 
         return view
@@ -68,6 +79,7 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                 now.get(Calendar.MONTH), // Initial month selection
                 now.get(Calendar.DAY_OF_MONTH) // Initial day selection
             ).apply {
+                minDate = now
                 setOkColor("#eeeeee") // @color/textPrimary
                 setCancelColor("#eeeeee")
                 version = DatePickerDialog.Version.VERSION_2
@@ -78,6 +90,33 @@ class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePic
                 show(it, "Datepickerdialog")
             }
         }
+    }
+
+    private fun createParty() {
+        if (validate()) {
+            // Create party
+        }
+    }
+
+    private fun validate(): Boolean {
+        var result = true
+        if (mysteryEditText.text == null || mysteryEditText.text.toString() == "") {
+            mysteryEditText.error = "Pick a mystery for your party"
+            result = false
+        }
+        if (nameEditText.text == null || nameEditText.text.toString() == "") {
+            nameEditText.error = "Pick a name for yourself"
+            result = false
+        }
+        if (dateEditText.text == null || dateEditText.text.toString() == "") {
+            dateEditText.error = "Pick a date for your party"
+            result = false
+        }
+        if (placeEditText.text == null || placeEditText.text.toString() == "") {
+            placeEditText.error = "Pick a place for your party"
+            result = false
+        }
+        return result
     }
 
     @SuppressLint("SetTextI18n")
