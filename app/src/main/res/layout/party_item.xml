@@ -103,6 +103,7 @@
 
                 <com.google.android.material.button.MaterialButton
                         style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:id="@+id/party_item_cant_go"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Can't go" android:layout_marginStart="@dimen/keyline_2"/>

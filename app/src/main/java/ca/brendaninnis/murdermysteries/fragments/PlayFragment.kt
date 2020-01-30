@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import ca.brendaninnis.murdermysteries.R
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PlayFragment : Fragment() {
@@ -40,7 +42,7 @@ class PlayFragment : Fragment() {
     }
 
     class PartiesAdapter : RecyclerView.Adapter<PartiesAdapter.ViewHolder>() {
-        class ViewHolder(cardView: View) : RecyclerView.ViewHolder(cardView)
+        class ViewHolder(val cardView: View) : RecyclerView.ViewHolder(cardView)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val cardView = LayoutInflater.from(parent.context)
@@ -49,7 +51,16 @@ class PlayFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+            with(holder.cardView) {
+                findViewById<MaterialButton>(R.id.party_item_cant_go).setOnClickListener {
+                    MaterialAlertDialogBuilder(context)
+                        .setTitle("Confirm RSVP")
+                        .setMessage("Are you sure you want to let the host know you will not be attending their party?\n\nThey will have to invite you again if you change your mind.")
+                        .setPositiveButton("Ok", null)
+                        .setNegativeButton("Cancel", null)
+                        .show()
+                }
+            }
         }
 
         override fun getItemCount(): Int {
