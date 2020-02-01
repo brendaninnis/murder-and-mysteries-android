@@ -26,7 +26,7 @@ class HelpFragment : Fragment() {
 
         val preferenceRepository = (requireActivity().application as App).preferenceRepository
 
-        preferenceRepository.allowNotificationsLive.observe(this, Observer { allowNotifications ->
+        preferenceRepository.allowNotificationsLive.observe(viewLifecycleOwner, Observer { allowNotifications ->
             allowNotifications?.let {
                 notificationSwitch.isChecked = it
             }
@@ -36,7 +36,7 @@ class HelpFragment : Fragment() {
             preferenceRepository.allowNotifications = checked
         }
 
-        preferenceRepository.isDarkThemeLive.observe(this, Observer { isDarkTheme ->
+        preferenceRepository.isDarkThemeLive.observe(viewLifecycleOwner, Observer { isDarkTheme ->
             isDarkTheme?.let { darkModeSwitch.isChecked = it }
         })
 
