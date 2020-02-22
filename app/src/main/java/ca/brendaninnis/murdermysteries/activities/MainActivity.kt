@@ -15,18 +15,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import ca.brendaninnis.murdermysteries.App
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.viewmodels.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 const val host = true
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mDrawerLayout: DrawerLayout
-    private lateinit var mNavigationView: NavigationView
     private lateinit var mNavController: NavController
     private lateinit var mAppBarConfiguration: AppBarConfiguration
     private val mViewModel: MainActivityViewModel by viewModels()
@@ -43,15 +43,12 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Set toolbar as action bar
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         // Set up navigation
-        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        mNavigationView = findViewById<NavigationView>(R.id.nav_view).apply {
-            setupWithNavController(mNavController)
-        }
-        mDrawerLayout = findViewById(R.id.drawer_layout)
+        mNavController = findNavController(R.id.nav_host_fragment)
+        nav_view.setupWithNavController(mNavController)
+
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.playFragment,
@@ -59,11 +56,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.howToPlayFragment,
                 R.id.awardFragment,
                 R.id.helpFragment
-            ), mDrawerLayout
+            ), drawer_layout
         )
         setupActionBarWithNavController(mNavController, mAppBarConfiguration)
 
-        subscribeToModel(mViewModel, mNavigationView)
+        subscribeToModel(mViewModel, nav_view)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -72,8 +69,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START)
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
             hideSoftKeyboard()
