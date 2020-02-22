@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/playFragment"
+            android:checked="true"
+            android:icon="@drawable/ic_baseline_home_24px"
+            android:title="@string/play"/>
+        <item
+            android:id="@+id/mysteriesFragment"
+            android:icon="@drawable/ic_baseline_list_24px"
+            android:title="@string/mysteries" />
+        <item
+            android:id="@+id/howToPlayFragment"
+            android:icon="@drawable/ic_baseline_info_24px"
+            android:title="@string/how_to_play" />
+        <item
+            android:id="@+id/awardFragment"
+            android:icon="@drawable/ic_baseline_bookmark_24px"
+            android:title="@string/awards" />
+        <item
+            android:id="@+id/helpFragment"
+            android:icon="@drawable/ic_baseline_help_24px"
+            android:title="@string/help" />
+    </group>
+</menu>

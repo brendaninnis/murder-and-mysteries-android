@@ -37,7 +37,7 @@
     <fragment
             android:id="@+id/newPartyFragment"
             android:name="ca.brendaninnis.murdermysteries.fragments.NewPartyFragment"
-            android:label="Host a murder mystery party"
+            android:label="Host a murder mystery"
             tools:layout="@layout/fragment_new_party" >
         <argument
                 android:name="mysteryId"

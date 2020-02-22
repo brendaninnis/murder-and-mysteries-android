@@ -3,21 +3,25 @@ package ca.brendaninnis.murdermysteries.activities
 import android.app.Activity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.*
 import ca.brendaninnis.murdermysteries.App
 import ca.brendaninnis.murdermysteries.R
+import ca.brendaninnis.murdermysteries.viewmodels.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
 
+const val host = true
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,13 +29,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mNavigationView: NavigationView
     private lateinit var mNavController: NavController
     private lateinit var mAppBarConfiguration: AppBarConfiguration
+    private val mViewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mNavigationView = findViewById(R.id.nav_view)
-        mDrawerLayout = findViewById(R.id.drawer_layout)
 
         // Observe night mode preference and set the delegate's local night mode
         (application as App).preferenceRepository
@@ -44,7 +46,12 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Set up the nav controller
+        // Set up navigation
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        mNavigationView = findViewById<NavigationView>(R.id.nav_view).apply {
+            setupWithNavController(mNavController)
+        }
+        mDrawerLayout = findViewById(R.id.drawer_layout)
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.playFragment,
@@ -54,46 +61,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.helpFragment
             ), mDrawerLayout
         )
+        setupActionBarWithNavController(mNavController, mAppBarConfiguration)
 
-        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, mNavController, mAppBarConfiguration)
-
-        // Set navigation view item selected listener
-        mNavigationView.setNavigationItemSelectedListener { menuItem ->
-            // set item as selected to persist highlight
-            menuItem.isChecked = true
-
-            // close drawer when item is tapped
-            mDrawerLayout.closeDrawers()
-
-            when(menuItem.itemId) {
-                R.id.nav_play -> {
-                    mNavController.navigate(R.id.playFragment)
-                }
-                R.id.nav_mysteries -> {
-                    mNavController.navigate(R.id.mysteriesFragment)
-                }
-                R.id.nav_how_to_play -> {
-                    mNavController.navigate(R.id.howToPlayFragment)
-                }
-                R.id.nav_awards -> {
-                    mNavController.navigate(R.id.awardFragment)
-                }
-                R.id.nav_help -> {
-                    mNavController.navigate(R.id.helpFragment)
-                }
-            }
-
-            true
-        }
+        subscribeToModel(mViewModel, mNavigationView)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) = item.onNavDestinationSelected(
-        Navigation.findNavController(this, R.id.nav_host_fragment))
-            || super.onOptionsItemSelected(item)
-
     override fun onSupportNavigateUp(): Boolean {
-        checkCurrentDestination()
         hideSoftKeyboard()
         return NavigationUI.navigateUp(mNavController, mAppBarConfiguration)
     }
@@ -103,25 +76,46 @@ class MainActivity : AppCompatActivity() {
             mDrawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
-            checkCurrentDestination()
             hideSoftKeyboard()
         }
+    }
+
+    private fun subscribeToModel(viewModel: MainActivityViewModel, navigationView: NavigationView) {
+        viewModel.party.observe(this, Observer { party ->
+            navigationView.menu.clear()
+
+            if (party?.phase == "scheduled") {
+                if (host) {
+                    navigationView.inflateMenu(R.menu.host_scheduled_menu)
+                    with(navigationView.getHeaderView(0)) {
+                        background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                        findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                        toggleNavigationView(this, true)
+                    }
+                }
+            } else {
+                navigationView.inflateMenu(R.menu.main_menu)
+                with(navigationView.getHeaderView(0)) {
+                    setBackgroundColor(ContextCompat.getColor(context, R.color.color_primary))
+                    findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = getString(R.string.app_name)
+                    toggleNavigationView(this, false)
+                }
+            }
+        })
+    }
+
+    private fun toggleNavigationView(navHeaderView: View, party: Boolean) {
+        navHeaderView.findViewById<View>(R.id.nav_header_overlay).visibility = if (party) View.VISIBLE else View.INVISIBLE
+        navHeaderView.findViewById<View>(R.id.nav_header_date_icon).visibility = if (party) View.VISIBLE else View.GONE
+        navHeaderView.findViewById<View>(R.id.nav_header_date_textview).visibility = if (party) View.VISIBLE else View.GONE
+        navHeaderView.findViewById<View>(R.id.nav_header_address_icon).visibility = if (party) View.VISIBLE else View.GONE
+        navHeaderView.findViewById<View>(R.id.nav_header_address_textview).visibility = if (party) View.VISIBLE else View.GONE
     }
 
     private fun hideSoftKeyboard() {
         with(getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager) {
             if (isActive) hideSoftInputFromWindow(currentFocus?.windowToken, 0)
             currentFocus?.clearFocus()
-        }
-    }
-
-    private fun checkCurrentDestination() {
-        when (mNavController.currentDestination) {
-            mNavController.graph.findNode(R.id.playFragment) -> mNavigationView.menu.getItem(0).isChecked = true
-            mNavController.graph.findNode(R.id.mysteriesFragment) -> mNavigationView.menu.getItem(1).isChecked = true
-            mNavController.graph.findNode(R.id.howToPlayFragment) -> mNavigationView.menu.getItem(2).isChecked = true
-            mNavController.graph.findNode(R.id.awardFragment) -> mNavigationView.menu.getItem(3).isChecked = true
-            mNavController.graph.findNode(R.id.helpFragment) -> mNavigationView.menu.getItem(4).isChecked = true
         }
     }
 }

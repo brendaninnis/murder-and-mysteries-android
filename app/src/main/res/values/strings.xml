@@ -1,6 +1,9 @@
 <resources>
     // Fragments
     <string name="app_name">Murder &amp; Mysteries</string>
+    <string name="instructions">Instructions</string>
+    <string name="characters">Characters</string>
+    <string name="invitation">Invitation</string>
     <string name="play">Play</string>
     <string name="mysteries">Mysteries</string>
     <string name="how_to_play">How to Play</string>

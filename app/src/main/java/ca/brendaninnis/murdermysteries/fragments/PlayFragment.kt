@@ -26,7 +26,7 @@ class PlayFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_play, container, false)
 
         view.findViewById<FloatingActionButton>(R.id.play_fab).setOnClickListener {
-            findNavController().navigate(R.id.newPartyFragment)
+            findNavController().navigate(R.id.mysteriesFragment)
         }
 
         viewManager = LinearLayoutManager(context)
