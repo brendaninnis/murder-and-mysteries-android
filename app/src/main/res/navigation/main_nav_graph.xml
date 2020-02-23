@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
-            app:startDestination="@id/playFragment">
+            app:startDestination="@id/mysteriesFragment">
 
     <fragment android:id="@+id/playFragment" android:name="ca.brendaninnis.murdermysteries.fragments.PlayFragment"
               android:label="Play" tools:layout="@layout/fragment_play" >

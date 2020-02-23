@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.playFragment,
                 R.id.mysteriesFragment,
                 R.id.howToPlayFragment,
                 R.id.awardFragment,

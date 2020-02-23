@@ -2,14 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/playFragment"
-            android:checked="true"
-            android:icon="@drawable/ic_baseline_home_24px"
-            android:title="@string/play"/>
-        <item
             android:id="@+id/mysteriesFragment"
             android:icon="@drawable/ic_baseline_list_24px"
-            android:title="@string/mysteries" />
+            android:title="@string/mysteries" android:checked="true" />
         <item
             android:id="@+id/howToPlayFragment"
             android:icon="@drawable/ic_baseline_info_24px"
