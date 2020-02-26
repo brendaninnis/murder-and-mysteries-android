@@ -42,23 +42,8 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        // Set toolbar as action bar
         setSupportActionBar(toolbar)
-
-        // Set up navigation
-        mNavController = findNavController(R.id.nav_host_fragment)
-        nav_view.setupWithNavController(mNavController)
-
-        mAppBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.mysteriesFragment,
-                R.id.howToPlayFragment,
-                R.id.awardFragment,
-                R.id.helpFragment
-            ), drawer_layout
-        )
-        setupActionBarWithNavController(mNavController, mAppBarConfiguration)
-
+        setupNavigation()
         subscribeToModel(mViewModel, nav_view)
     }
 
@@ -74,6 +59,24 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
             hideSoftKeyboard()
         }
+    }
+
+    private fun setupNavigation() {
+        mNavController = findNavController(R.id.nav_host_fragment)
+        nav_view.setupWithNavController(mNavController)
+
+        mAppBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.mysteriesFragment,
+                R.id.howToPlayFragment,
+                R.id.awardFragment,
+                R.id.helpFragment,
+                R.id.invitationFragment,
+                R.id.instructionsFragment,
+                R.id.charactersFragment
+            ), drawer_layout
+        )
+        setupActionBarWithNavController(mNavController, mAppBarConfiguration)
     }
 
     private fun subscribeToModel(viewModel: MainActivityViewModel, navigationView: NavigationView) {
