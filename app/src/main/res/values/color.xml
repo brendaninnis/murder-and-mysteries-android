@@ -56,5 +56,6 @@
     <color name="color_on_error">#FFFFFA</color>
 
     <color name="color_image_overlay">#88212121</color>
+    <color name="color_on_image_overlay">#FFFFFA</color>
 
 </resources>

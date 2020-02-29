@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.InvitationFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/murder_and_dragons_invite_bg"
+            android:scaleType="centerCrop" />
+
+    <ScrollView
+            android:id="@+id/invitation_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <View
+                    android:id="@+id/invitation_top_spacer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                    android:id="@+id/invitation_overlay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/color_image_overlay"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_top_spacer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_supertitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/keyline_5"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    android:text="Please Join Danielle For"
+                    android:textAppearance="?textAppearanceSubtitle1"
+                    android:textColor="@color/color_on_image_overlay"
+                    app:fontFamily="@font/eagle_lake"
+                    app:layout_constraintTop_toTopOf="@+id/invitation_overlay"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Murder &amp; Dragons"
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:textAppearance="?textAppearanceHeadline4"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/medievalsharp"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_supertitle"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Friday, February 29"
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:layout_marginTop="@dimen/keyline_2"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    app:fontFamily="@font/eagle_lake"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_title"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7:00pm"
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    app:fontFamily="@font/eagle_lake"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_date"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_location_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/keyline_5"
+                    android:text="The Castle is located at"
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    app:fontFamily="@font/eagle_lake"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_time"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="141-200 Dallas rd."
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    app:fontFamily="@font/eagle_lake"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_location_label"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/invitation_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/keyline_4"
+                    android:layout_marginEnd="@dimen/keyline_4"
+                    android:layout_marginTop="@dimen/keyline_5"
+                    android:paddingBottom="@dimen/margin"
+                    android:text="The Lady Norwich has invited her vassels, courtiers and foreign diplomats to a feast in celebration of her upcoming wedding to the prince of Rosedell.\n\nIntrigue, plots and rumours abound in the court and some rivalries could turn murderous. Could it be the greedy, powerlustful baron, or the mysterious sorcerer or even the most trusted servant of the Countess.\n\nYou will have to use your powers of persuation and deduction to solve the mystery."
+                    android:textAppearance="?textAppearanceBody1"
+                    android:textColor="@color/color_on_image_overlay"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_location" />
+
+            <View
+                    android:id="@+id/invitation_bottom_spacer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toBottomOf="@+id/invitation_description"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

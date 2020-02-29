@@ -44,4 +44,9 @@
                 app:argType="integer"
                 android:defaultValue="-1" />
     </fragment>
+    <fragment
+            android:id="@+id/invitationFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.InvitationFragment"
+            android:label="You're invited"
+            tools:layout="@layout/fragment_invitation" />
 </navigation>

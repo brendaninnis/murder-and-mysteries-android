@@ -16,7 +16,9 @@
 -->
 
 <resources>
-  <array name="preloaded_fonts" translatable="false">
-    <item>@font/montserrat</item>
-  </array>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/eagle_lake</item>
+        <item>@font/medievalsharp</item>
+        <item>@font/montserrat</item>
+    </array>
 </resources>
