@@ -14,10 +14,21 @@ class InvitationFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_invitation, container, false)
-        
-        val overlay = view.findViewById<View>(R.id.invitation_overlay)
+
+        setupSpacers(view,
+            view.findViewById(R.id.invitation_overlay),
+            view.findViewById(R.id.invitation_top_spacer),
+            view.findViewById(R.id.invitation_bottom_spacer)
+        )
+
+        return view
+    }
+
+    private fun setupSpacers(view: View, overlay: View, topSpacer: View, bottomSpacer: View) {
+
+        // Post delayed 500ms to let the layout "settle" -- This is a hack
         overlay.postDelayed({
-            with (view.findViewById<View>(R.id.invitation_bottom_spacer)) {
+            with (bottomSpacer) {
                 val params = layoutParams
                 val overlayHeight = overlay.measuredHeight
                 var height = view.measuredHeight - overlayHeight
@@ -33,7 +44,7 @@ class InvitationFragment : Fragment() {
 
                 val metrics = view.context.resources.displayMetrics
 
-                with (view.findViewById<View>(R.id.invitation_top_spacer)) {
+                with (topSpacer) {
                     val params = layoutParams
                     params.height = view.measuredHeight - (184 * metrics.density).toInt()
                     layoutParams = params
@@ -42,7 +53,5 @@ class InvitationFragment : Fragment() {
                 return true
             }
         })
-
-        return view
     }
 }

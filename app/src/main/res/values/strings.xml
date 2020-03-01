@@ -42,6 +42,25 @@
     <string name="love_this_app">Love this app?</string>
     <string name="leave_a_rating">Leave a rating</string>
 
+    // Invitation Fragment
+    <string name="youre_invited">You\'re invited</string>
+    <string name="instructions_host_invite_body_1"><b>► As host, the first thing to do is invite people to your party.</b> You\'re guests will receive a link to download the app and view their invitation.</string>
+    <string name="instructions_host_invite_body_2"><b>► Ask your guests to review the mystery before your party.</b> You\'re guests will be able to read their invitation, the Guest Guide instructions and the Feast Announcement.</string>
+    <string name="instructions_host_invite_body_3"><b>► This app facilitates the game and makes hosting easy.</b> The app is an essential component for all players. If for some reason someone cannot bring their device for your party, ask someone if they have an extra loaner device.</string>
+    <string name="instructions_host_characters_body_1"><b>► Before your party, you will need to assign a character to each guest from the Characters screen.</b> Your guest will be notified that they\'ve been assigned a character and they will be able to read their character\'s backstory.</string>
+    <string name="instructions_host_characters_body_2"><b>► Neither you nor your guests will know whether they are victim or murderer before the party.</b> This makes the reveal a surprise and allows for better role playing and deduction.</string>
+    <string name="instructions_host_characters_body_3"><b>► You and your guests can read a short description of each character.</b> When you assign characters, try to match your guests to a character. Certain characters will be a part of a couple or related to other characters.</string>
+    <string name="instructions_host_timeline_body_1"><b>► When your party is scheduled to start, the app will begin Stage 1: Arrival.</b> All players will be able to see their first objectives, things their character\'s know and their inventory.</string>
+    <string name="instructions_host_timeline_body_2"><b>► Allow time for guests to arrive.</b> Everyone can mingle in character, and get introduced to each other. Once everyone has arrived, you (the host) will have the option on the Party screen to begin Stage 2: Welcome.</string>
+    <string name="instructions_host_timeline_body_3"><b>► Elowynn Lockwood will receive a script to read to welcome all to the feast.</b> Give the guests 30 \- 60 minutes to mingle and complete their first objectives. When you are ready, you can proceed the party to Stage 3: Murder.</string>
+    <string name="instructions_host_timeline_body_4"><b>► The victim will receive a notification.</b> They will let you know they are ready for the murder.</string>
+    <string name="instructions_host_timeline_body_5"><b>► The countess will receive a notification.</b> The countess will be instructed to wait for you to tell them when to make their toast.</string>
+    <string name="instructions_host_timeline_body_6"><b>► When the countess makes their toast and everyone takes a drink, the victim will fall over dead.</b> The captain of the city guard will read a script to start the murder investigation.</string>
+    <string name="instructions_host_timeline_body_7"><b>► Everyone will now have their second set of objectives and information.</b> Give the players time to complete their second objectives and discuss the murder. Once the captain has collected all evidence proceed to Stage 4: Evidence.</string>
+    <string name="instructions_host_timeline_body_8"><b>► Captain Jarin will present their findings to the guests.</b> Everyone will be able to see the evidence on their devices. Give them time to review the evidence, and make their accusations using the app.</string>
+    <string name="instructions_host_timeline_body_9"><b>► Once everyone has made an accusation, and voted for best dressed and best acting, you will receive a notification.</b> You can now proceed to Stage 5: Solution.</string>
+    <string name="instructions_host_timeline_body_10"><b>► Captain Jerin will read the solution aloud to everyone.</b> Awards will be handed out via the app and everyone will be able to see the winners.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="players_icon">Players icon</string>

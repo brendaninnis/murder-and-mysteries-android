@@ -47,6 +47,11 @@
     <fragment
             android:id="@+id/invitationFragment"
             android:name="ca.brendaninnis.murdermysteries.fragments.InvitationFragment"
-            android:label="You're invited"
+            android:label="@string/youre_invited"
             tools:layout="@layout/fragment_invitation" />
+    <fragment
+            android:id="@+id/instructionsFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.InstructionsFragment"
+            android:label="@string/instructions"
+            tools:layout="@layout/fragment_instructions" />
 </navigation>
