@@ -54,4 +54,27 @@
             android:name="ca.brendaninnis.murdermysteries.fragments.InstructionsFragment"
             android:label="@string/instructions"
             tools:layout="@layout/fragment_instructions" />
+    <fragment
+            android:id="@+id/charactersFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.CharactersFragment"
+            android:label="@string/characters"
+            tools:layout="@layout/fragment_characters" >
+        <action
+                android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+                app:destination="@id/characterDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/characterDetailFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.CharacterDetailFragment"
+            android:label="{title}"
+            tools:layout="@layout/fragment_character_detail">
+        <argument
+                android:name="characterId"
+                android:defaultValue="0"
+                app:argType="integer" />
+        <argument
+                android:name="title"
+                android:defaultValue="Character"
+                app:argType="string" />
+    </fragment>
 </navigation>
