@@ -14,9 +14,6 @@ import androidx.transition.TransitionInflater
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.viewmodels.CharacterDetailViewModel
 
-/**
- * A simple [Fragment] subclass.
- */
 class CharacterDetailFragment : Fragment() {
 
     private val args: CharacterDetailFragmentArgs by navArgs()

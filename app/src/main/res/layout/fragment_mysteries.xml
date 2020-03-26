@@ -9,5 +9,7 @@
         android:id="@+id/mysteries_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/keyline_2"/>
+        android:padding="@dimen/keyline_2"
+            android:clipChildren="false"
+            android:clipToPadding="false"/>
 </FrameLayout>
