@@ -6,18 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.viewmodels.CharacterDetailViewModel
+import ca.brendaninnis.murdermysteries.viewmodels.MainActivityViewModel
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class CharacterDetailFragment : Fragment() {
 
     private val args: CharacterDetailFragmentArgs by navArgs()
     private lateinit var characterImage: AppCompatImageView
+    private val activityModel: MainActivityViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +41,22 @@ class CharacterDetailFragment : Fragment() {
             sharedElementReturnTransition = it
         }
         enterTransition = transitionInflater.inflateTransition(android.R.transition.explode)
+
+        view.findViewById<MaterialButton>(R.id.character_detail_assign_button).setOnClickListener {
+            activityModel.party.value?.players?.let { players ->
+                val choices = Array(players.size) { int ->
+                    players[int].name
+                }
+
+                MaterialAlertDialogBuilder(context)
+                    .setTitle("Choose a player")
+                    .setItems(choices) { dialog, which ->
+                        Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        }
 
         return view
     }

@@ -16,4 +16,24 @@ class Party(val id: Int, val mysteryId: Int, val host: String, val date: Date, v
             Mystery(2, "The Games Night Murder", 10, 24, R.drawable.gamesnight)
         )[mysteryId]
     }
+
+    @IgnoredOnParcel
+    val players: List<Player> by lazy {
+        listOf(
+            Player(0, "Brendan Innis"),
+            Player(1, "Danielle Innis"),
+            Player(2, "Richy"),
+            Player(3, "Rozlyn Robinson"),
+            Player(4, "Paul Robinson"),
+            Player(5, "Deborah Robinson"),
+            Player(6, "Ben Rollo"),
+            Player(7, "Andrea Pilgrim"),
+            Player(8, "Jerek"),
+            Player(9, "Erinne"),
+            Player(10, "Adam Verno"),
+            Player(11, "Adam Beech"),
+            Player(12, "Kronos"),
+            Player(13, "Kratos")
+        )
+    }
 }

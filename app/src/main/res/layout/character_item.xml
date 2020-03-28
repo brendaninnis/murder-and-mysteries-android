@@ -25,16 +25,34 @@
                 android:clipToPadding="false"
                 android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/character_item_image"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/person"/>
+                    android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/character_item_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/person"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/character_item_assignee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:gravity="center"
+                        android:background="@color/color_image_overlay"
+                        android:textColor="@color/color_on_image_overlay"
+                        android:textAppearance="?textAppearanceSubtitle1"
+                        android:alpha="?alphaEmphasisHigh"
+                        android:text="Unassigned" />
+            </FrameLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/character_item_text"
                     style="?textAppearanceSubtitle1"
+                    android:alpha="?alphaEmphasisHigh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/keyline_1"

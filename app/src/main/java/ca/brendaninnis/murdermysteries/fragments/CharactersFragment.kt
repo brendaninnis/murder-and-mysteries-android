@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,54 +14,11 @@ import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.adapters.CharactersAdapter
 import ca.brendaninnis.murdermysteries.models.CharacterRole
 import ca.brendaninnis.murdermysteries.utils.RecyclerItemTouchListener
+import ca.brendaninnis.murdermysteries.viewmodels.MainActivityViewModel
 
 class CharactersFragment : Fragment() {
 
     private var charactersAdapter: CharactersAdapter = CharactersAdapter()
-    private val characters = listOf(
-        CharacterRole(
-            0,
-            "Countess Whatsername",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        ),
-        CharacterRole(
-            1,
-            "Prince Whatthefuck",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        ),
-        CharacterRole(
-            2,
-            "Captain of the Guard",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        ),
-        CharacterRole(
-            3,
-            "Baron Harkonen",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        ),
-        CharacterRole(
-            4,
-            "Wizard Harry",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        ),
-        CharacterRole(
-            5,
-            "Legolas My Eggolas",
-            "The Lady Rosedell is loved and admired by the nobility and peasantry alike. Her beauty and grace are unmatched in all the kingdom. Her wedding to the prince will be an auspicious occation.",
-            "Ms. Lockwood is an elegant noble wearing fine silks and jewlery. She ought to be the most well dressed person at the feast.",
-            R.drawable.person
-        )
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -95,9 +54,20 @@ class CharactersFragment : Fragment() {
                 }
         }
 
-        charactersAdapter.submitList(characters)
-
         return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val model: MainActivityViewModel by activityViewModels()
+        observeActivityViewModel(model)
+    }
+
+    private fun observeActivityViewModel(model: MainActivityViewModel) {
+        model.party.observe(viewLifecycleOwner, Observer { party ->
+            charactersAdapter.submitList(party?.mystery?.characters)
+        })
     }
 
 }

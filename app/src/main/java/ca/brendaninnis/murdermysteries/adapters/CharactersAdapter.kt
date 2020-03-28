@@ -38,6 +38,12 @@ class CharactersAdapter : ListAdapter<CharacterRole, CharactersAdapter.ViewHolde
                 transitionName = character.name
             }
             findViewById<AppCompatTextView>(R.id.character_item_text).setText(character.name)
+            findViewById<AppCompatTextView>(R.id.character_item_assignee).setText(
+                if (character.assigneeName == null)
+                    "Unassigned"
+                else
+                    character.assigneeName
+            )
         }
     }
 
