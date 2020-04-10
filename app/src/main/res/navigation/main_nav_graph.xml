@@ -77,4 +77,14 @@
                 android:defaultValue="Character"
                 app:argType="string" />
     </fragment>
+    <fragment
+            android:id="@+id/myCharacterFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.MyCharacterFragment"
+            android:label="@string/my_character"
+            tools:layout="@layout/fragment_my_character" >
+        <argument
+                android:name="characterId"
+                app:argType="integer"
+                android:defaultValue="0" />
+    </fragment>
 </navigation>

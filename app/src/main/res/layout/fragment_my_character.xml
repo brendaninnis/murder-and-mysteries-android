@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.MyCharacterFragment">
+
+    <ScrollView
+            android:id="@+id/my_character_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/my_character_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/countess" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_image_overlay"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/my_character_image">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/my_character_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha="?alphaEmphasisHigh"
+                        android:text="Elowynn Lockwood"
+                        android:textAppearance="?textAppearanceHeadline5"
+                        android:textColor="@color/color_on_secondary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/my_character_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha="?alphaEmphasisHigh"
+                        android:text="Countess of Rosedell"
+                        android:textAppearance="?textAppearanceHeadline6"
+                        android:textColor="@color/color_on_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/keyline_4"
+                    android:paddingEnd="@dimen/keyline_4"
+                    android:paddingBottom="@dimen/keyline_5"
+                    android:background="@color/color_background"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/my_character_image">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:text="Backstory"
+                        android:textAppearance="?textAppearanceHeadline6"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis sit amet arcu blandit commodo. Donec vestibulum augue eu sapien lacinia pretium. Duis non suscipit ligula. Etiam sit amet finibus urna, nec mattis orci. Curabitur nec tempus arcu. Mauris sit amet arcu aliquam, suscipit neque ac, dictum magna. Mauris lorem erat, semper non est at, vestibulum dignissim tortor. Vestibulum ornare erat sed neque vehicula, nec posuere felis luctus.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis sit amet arcu blandit commodo. Donec vestibulum augue eu sapien lacinia pretium. Duis non suscipit ligula. Etiam sit amet finibus urna, nec mattis orci. Curabitur nec tempus arcu. Mauris sit amet arcu aliquam, suscipit neque ac, dictum magna. Mauris lorem erat, semper non est at, vestibulum dignissim tortor. Vestibulum ornare erat sed neque vehicula, nec posuere felis luctus."
+                        android:textAppearance="?textAppearanceBody1"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:background="@color/color_primary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/keyline_5"
+                        android:text="Acting and Dressing Your Part"
+                        android:textAppearance="?textAppearanceHeadline6"
+                        android:alpha="?alphaEmphasisHigh" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis sit amet arcu blandit commodo. Donec vestibulum augue eu sapien lacinia pretium. Duis non suscipit ligula. Etiam sit amet finibus urna, nec mattis orci. Curabitur nec tempus arcu. Mauris sit amet arcu aliquam, suscipit neque ac, dictum magna. Mauris lorem erat, semper non est at, vestibulum dignissim tortor. Vestibulum ornare erat sed neque vehicula, nec posuere felis luctus."
+                        android:textAppearance="?textAppearanceBody1"
+                        android:alpha="?alphaEmphasisHigh" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+            android:id="@+id/my_character_no_character_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/keyline_4"
+            android:paddingStart="@dimen/keyline_4"
+            android:paddingEnd="@dimen/keyline_4"
+            android:background="@color/color_background">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/keyline_5"
+                android:layout_marginBottom="@dimen/keyline_5"
+                android:contentDescription="@string/calendar_icon"
+                android:src="@drawable/ic_baseline_account_circle_24px"
+                android:tint="@color/color_primary"
+                tools:layout_editor_absoluteX="141dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="No Character Assigned"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:alpha="?alphaEmphasisHigh"
+                tools:layout_editor_absoluteX="16dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="?textAppearanceBody1"
+                android:alpha="?alphaEmphasisHigh"
+                android:text="You will be notified when the host assings you a character role. You can return here to view your character and backstory." />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

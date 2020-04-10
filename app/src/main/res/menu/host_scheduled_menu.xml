@@ -11,6 +11,9 @@
         <item android:id="@+id/charactersFragment"
             android:icon="@drawable/ic_baseline_people_24px"
             android:title="@string/characters" />
+        <item android:id="@+id/myCharacterFragment"
+                android:icon="@drawable/ic_baseline_account_circle_24px"
+                android:title="@string/my_character" />
     </group>
     <group  android:id="@+id/menu_main"
             android:checkableBehavior="single">
