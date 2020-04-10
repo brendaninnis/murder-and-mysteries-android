@@ -87,4 +87,14 @@
                 app:argType="integer"
                 android:defaultValue="0" />
     </fragment>
+    <fragment
+            android:id="@+id/inventoryFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.InventoryFragment"
+            android:label="Inventory"
+            tools:layout="@layout/fragment_inventory" />
+    <fragment
+            android:id="@+id/objectivesFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.ObjectivesFragment"
+            android:label="Objectives"
+            tools:layout="@layout/fragment_objectives" />
 </navigation>

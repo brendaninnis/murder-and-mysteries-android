@@ -3,17 +3,20 @@
     <group android:id="@+id/menu_party"
             android:checkableBehavior="single">
         <item android:id="@+id/instructionsFragment"
-            android:icon="@drawable/ic_baseline_menu_24px"
-            android:title="@string/instructions" />
-        <item android:id="@+id/invitationFragment"
-                android:icon="@drawable/ic_baseline_email_24px"
-                android:title="@string/invitation" />
+                android:icon="@drawable/ic_baseline_menu_24px"
+                android:title="@string/instructions" />
         <item android:id="@+id/charactersFragment"
-            android:icon="@drawable/ic_baseline_people_24px"
-            android:title="@string/characters" />
+                android:icon="@drawable/ic_baseline_people_24px"
+                android:title="@string/characters" />
         <item android:id="@+id/myCharacterFragment"
                 android:icon="@drawable/ic_baseline_account_circle_24px"
                 android:title="@string/my_character" />
+        <item android:id="@+id/objectivesFragment"
+                android:icon="@drawable/ic_assignment_24dp"
+                android:title="Objectives" />
+        <item android:id="@+id/inventoryFragment"
+                android:icon="@drawable/ic_work_24dp"
+                android:title="Inventory" />
     </group>
     <group  android:id="@+id/menu_main"
             android:checkableBehavior="single">
