@@ -13,10 +13,10 @@
                 android:title="@string/my_character" />
         <item android:id="@+id/objectivesFragment"
                 android:icon="@drawable/ic_assignment_24dp"
-                android:title="Objectives" />
+                android:title="@string/objectives" />
         <item android:id="@+id/inventoryFragment"
                 android:icon="@drawable/ic_work_24dp"
-                android:title="Inventory" />
+                android:title="@string/inventory" />
     </group>
     <group  android:id="@+id/menu_main"
             android:checkableBehavior="single">

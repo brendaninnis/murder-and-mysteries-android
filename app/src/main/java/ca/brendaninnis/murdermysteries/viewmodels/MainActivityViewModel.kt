@@ -9,7 +9,7 @@ import java.util.*
 class MainActivityViewModel: ViewModel() {
     private val _party: MutableLiveData<Party?> by lazy {
         MutableLiveData<Party?>().also {
-            it.value = Party(0, 0, "Danielle Innis", Date(1604170800000), "141-200 Dallas rd.", "scheduled")
+            it.value = Party(0, 0, "Danielle Innis", Date(1604170800000), "141-200 Dallas rd.", "before_murder")
         }
     }
     val party: LiveData<Party?>

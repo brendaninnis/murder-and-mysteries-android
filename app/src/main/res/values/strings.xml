@@ -65,5 +65,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="players_icon">Players icon</string>
     <string name="my_character">My Character</string>
+    <string name="objectives">Objectives</string>
+    <string name="inventory">Inventory</string>
 
 </resources>

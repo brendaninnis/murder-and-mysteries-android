@@ -82,7 +82,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.helpFragment,
                 R.id.invitationFragment,
                 R.id.instructionsFragment,
-                R.id.charactersFragment
+                R.id.charactersFragment,
+                R.id.myCharacterFragment,
+                R.id.objectivesFragment,
+                R.id.inventoryFragment
             ), drawer_layout
         )
         setupActionBarWithNavController(mNavController, mAppBarConfiguration)
@@ -92,28 +95,45 @@ class MainActivity : AppCompatActivity() {
         viewModel.party.observe(this, Observer { party ->
             navigationView.menu.clear()
 
-            if (party?.phase == "scheduled") {
-                if (host) {
-                    navigationView.inflateMenu(R.menu.host_scheduled_menu)
-                    with(navigationView.getHeaderView(0)) {
-                        background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
-                        with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
-                            text = party.mystery.name
-                            setTextColor(colorOnImageOverlay)
+            when (party?.phase) {
+                "scheduled" -> {
+                    if (host) {
+                        navigationView.inflateMenu(R.menu.host_scheduled_menu)
+                        with(navigationView.getHeaderView(0)) {
+                            background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                            with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                                text = party.mystery.name
+                                setTextColor(colorOnImageOverlay)
+                            }
+                            findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                            toggleNavigationView(this, true)
                         }
-                        findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
-                        toggleNavigationView(this, true)
                     }
                 }
-            } else {
-                navigationView.inflateMenu(R.menu.main_menu)
-                with(navigationView.getHeaderView(0)) {
-                    setBackgroundColor(ContextCompat.getColor(context, R.color.color_primary))
-                    with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
-                        text = getString(R.string.app_name)
-                        setTextColor(colorOnPrimary)
+                "before_murder" -> {
+                    if (host) {
+                        navigationView.inflateMenu(R.menu.before_murder_menu)
+                        with(navigationView.getHeaderView(0)) {
+                            background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                            with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                                text = party.mystery.name
+                                setTextColor(colorOnImageOverlay)
+                            }
+                            findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                            toggleNavigationView(this, true)
+                        }
                     }
-                    toggleNavigationView(this, false)
+                }
+                else -> {
+                    navigationView.inflateMenu(R.menu.main_menu)
+                    with(navigationView.getHeaderView(0)) {
+                        setBackgroundColor(ContextCompat.getColor(context, R.color.color_primary))
+                        with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                            text = getString(R.string.app_name)
+                            setTextColor(colorOnPrimary)
+                        }
+                        toggleNavigationView(this, false)
+                    }
                 }
             }
         })
