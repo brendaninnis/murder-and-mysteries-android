@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/keyline_2">
+
+    <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MyTheme.CardView"
+            android:id="@+id/mystery_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center"
+            app:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="@dimen/keyline_2"
+                    android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/objective_item_checkbox"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/keyline_2"
+                        android:tint="@color/color_secondary"
+                        app:srcCompat="@drawable/ic_check_box_outline_24dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/objective_item_complete_status"
+                        style="?textAppearanceSubtitle2"
+                        android:alpha="?alphaEmphasisMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/keyline_1"
+                        android:layout_marginBottom="@dimen/keyline_2"
+                        android:gravity="center"
+                        android:text="Not completed"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/objective_item_title"
+                    style="?textAppearanceSubtitle1"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/keyline_2"
+                    android:paddingEnd="@dimen/keyline_2"
+                    android:text="Threaten the Captain of the Guard"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/objective_item_detail"
+                    style="?textAppearanceBody2"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/keyline_2"
+                    android:paddingEnd="@dimen/keyline_2"
+                    android:layout_marginBottom="@dimen/keyline_2"
+                    android:layout_weight="1"
+                    android:text="The captain has been attempting to subvert your plans to skim from the city coffers and is a suitor competing for the attention of the countess."/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>
