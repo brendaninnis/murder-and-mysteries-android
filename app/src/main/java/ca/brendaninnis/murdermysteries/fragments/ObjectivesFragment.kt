@@ -16,7 +16,7 @@ import ca.brendaninnis.murdermysteries.viewmodels.ObjectivesViewModel
 
 class ObjectivesFragment : Fragment() {
 
-    private var objectivesAdapter: ObjectivesAdapter = ObjectivesAdapter()
+    private var objectivesAdapter = ObjectivesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,15 +45,6 @@ class ObjectivesFragment : Fragment() {
                         }
                     })
             )
-
-            // Awesome hack fix for returning shared element transition
-            // https://stackoverflow.com/a/56378178/3593889
-            postponeEnterTransition()
-            viewTreeObserver
-                .addOnPreDrawListener {
-                    startPostponedEnterTransition()
-                    true
-                }
         }
 
         return view

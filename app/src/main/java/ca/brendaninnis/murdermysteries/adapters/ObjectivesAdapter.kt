@@ -20,7 +20,6 @@ private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Objective>() {
 }
 
 class ObjectivesAdapter : ListAdapter<Objective, ObjectivesAdapter.ViewHolder>(DIFF_CALLBACK) {
-
     class ViewHolder(val cardView: View) : RecyclerView.ViewHolder(cardView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
