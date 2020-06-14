@@ -97,4 +97,14 @@
             android:name="ca.brendaninnis.murdermysteries.fragments.ObjectivesFragment"
             android:label="Objectives"
             tools:layout="@layout/fragment_objectives" />
+    <fragment
+            android:id="@+id/evidenceFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.EvidenceFragment"
+            android:label="@string/evidence"
+            tools:layout="@layout/fragment_evidence" />
+    <fragment
+            android:id="@+id/accusationFragment"
+            android:name="ca.brendaninnis.murdermysteries.fragments.AccusationFragment"
+            android:label="@string/accusation"
+            tools:layout="@layout/fragment_accusation" />
 </navigation>

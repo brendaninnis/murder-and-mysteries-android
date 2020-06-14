@@ -85,7 +85,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.charactersFragment,
                 R.id.myCharacterFragment,
                 R.id.objectivesFragment,
-                R.id.inventoryFragment
+                R.id.inventoryFragment,
+                R.id.evidenceFragment,
+                R.id.accusationFragment
             ), drawer_layout
         )
         setupActionBarWithNavController(mNavController, mAppBarConfiguration)
@@ -113,6 +115,34 @@ class MainActivity : AppCompatActivity() {
                 "before_murder" -> {
                     if (host) {
                         navigationView.inflateMenu(R.menu.before_murder_menu)
+                        with(navigationView.getHeaderView(0)) {
+                            background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                            with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                                text = party.mystery.name
+                                setTextColor(colorOnImageOverlay)
+                            }
+                            findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                            toggleNavigationView(this, true)
+                        }
+                    }
+                }
+                "after_murder" -> {
+                    if (host) {
+                        navigationView.inflateMenu(R.menu.before_murder_menu)
+                        with(navigationView.getHeaderView(0)) {
+                            background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                            with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                                text = party.mystery.name
+                                setTextColor(colorOnImageOverlay)
+                            }
+                            findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                            toggleNavigationView(this, true)
+                        }
+                    }
+                }
+                "evidence_accusation" -> {
+                    if (host) {
+                        navigationView.inflateMenu(R.menu.evidence_accusation_menu)
                         with(navigationView.getHeaderView(0)) {
                             background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
                             with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
