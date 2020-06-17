@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".fragments.EvidenceFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/evidence_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2"
+            android:layout_marginEnd="@dimen/keyline_2"
+            android:layout_marginBottom="@dimen/keyline_2"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Swipe right to left to see evidence"
+            android:textAppearance="?textAppearanceOverline"
+            android:gravity="center" />
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/evidence_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+            android:clipToPadding="false" />
+</LinearLayout>
