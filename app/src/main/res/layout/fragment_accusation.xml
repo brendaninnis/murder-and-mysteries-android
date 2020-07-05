@@ -1,14 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".fragments.AccusationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Accusation"
+            android:textAppearance="?textAppearanceHeadline5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_subheading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Consider the evidence and then select the person you think is the murderer."
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MyTheme.CardView"
+            android:id="@+id/accusation_character_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_subheading"
+            app:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/accusation_no_character"
+                    style="?textAppearanceButton"
+                    android:alpha="?alphaEmphasisHigh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/keyline_2"
+                    android:paddingEnd="@dimen/keyline_2"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="Tap to select a character"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/keyline_2"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/accusation_character_image"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="@dimen/keyline_2"
+                            android:scaleType="fitCenter"
+                            android:outlineProvider="bounds"
+                            app:srcCompat="@drawable/baron" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/accusation_character_name"
+                            style="?textAppearanceHeadline6"
+                            android:alpha="?alphaEmphasisHigh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/keyline_2"
+                            android:paddingEnd="@dimen/keyline_2"
+                            android:text="Baron Harkonen"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/accusation_character_title"
+                            style="?textAppearanceBody2"
+                            android:alpha="?alphaEmphasisHigh"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:paddingStart="@dimen/keyline_2"
+                            android:paddingEnd="@dimen/keyline_2"
+                            android:layout_weight="1"
+                            android:text="Mayor of Ravensberg"/>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end">
+
+                        <com.google.android.material.button.MaterialButton
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:id="@+id/accusation_character_cancel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/keyline_2"
+                                android:layout_marginEnd="@dimen/keyline_2"
+                                android:text="Cancel"
+                                app:layout_constraintStart_toEndOf="@+id/character_detail_image"
+                                app:layout_constraintTop_toBottomOf="@+id/character_detail_assingee" />
+
+                        <com.google.android.material.button.MaterialButton
+                                style="@style/Widget.MaterialComponents.Button.TextButton"
+                                android:id="@+id/accusation_character_confirm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/keyline_2"
+                                android:layout_marginEnd="@dimen/keyline_2"
+                                android:text="Confirm"
+                                app:layout_constraintStart_toEndOf="@+id/character_detail_image"
+                                app:layout_constraintTop_toBottomOf="@+id/character_detail_assingee" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_awards"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Awards"
+            android:textAppearance="?textAppearanceHeadline5"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_character_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_awards_subheading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Vote for which guest you thought was best in each category"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_awards"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_best_dressed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Best Dressed"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_awards_subheading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/accusation_best_dressed_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_marginStart="@dimen/keyline_5"
+            android:layout_marginEnd="@dimen/keyline_5"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_best_dressed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/accusation_best_dressed_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/keyline_2"
+                android:alpha="?alphaEmphasisHigh"
+                android:text="Tap to select a character"
+                android:textAppearance="?textAppearanceButton"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_best_acting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Best Acting"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_best_dressed_selection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/accusation_best_acting_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_marginStart="@dimen/keyline_5"
+            android:layout_marginEnd="@dimen/keyline_5"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_best_acting"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/accusation_best_acting_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/keyline_2"
+                android:alpha="?alphaEmphasisHigh"
+                android:text="Tap to select a character"
+                android:textAppearance="?textAppearanceButton"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accusation_best_fun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:alpha="?alphaEmphasisHigh"
+            android:text="Most Fun"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_best_acting_selection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/accusation_best_fun_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_marginStart="@dimen/keyline_5"
+            android:layout_marginEnd="@dimen/keyline_5"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintTop_toBottomOf="@+id/accusation_best_fun"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/accusation_best_fun_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/keyline_2"
+                android:alpha="?alphaEmphasisHigh"
+                android:text="Tap to select a character"
+                android:textAppearance="?textAppearanceButton"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import ca.brendaninnis.murdermysteries.R
-import ca.brendaninnis.murdermysteries.utils.DepthPageTransformer
 import ca.brendaninnis.murdermysteries.viewmodels.EvidenceViewModel
 import java.lang.Math.abs
 

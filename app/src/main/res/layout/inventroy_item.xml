@@ -42,7 +42,6 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="@dimen/keyline_2"
                     android:scaleType="fitCenter"
-                    android:elevation="8dp"
                     android:outlineProvider="bounds"
                     app:srcCompat="@drawable/coin_purse" />
         </LinearLayout>
