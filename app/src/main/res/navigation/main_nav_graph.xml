@@ -112,4 +112,9 @@
             android:name="ca.brendaninnis.murdermysteries.fragments.EvidenceDetailFragment"
             android:label="fragment_evidence_detail"
             tools:layout="@layout/fragment_evidence_detail" />
+    <fragment
+            android:id="@+id/solutionFragment"
+            android:name="ca.brendaninnis.murdermysteries.SolutionFragment"
+            android:label="@string/solution"
+            tools:layout="@layout/fragment_solution" />
 </navigation>

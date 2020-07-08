@@ -87,7 +87,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.objectivesFragment,
                 R.id.inventoryFragment,
                 R.id.evidenceFragment,
-                R.id.accusationFragment
+                R.id.accusationFragment,
+                R.id.solutionFragment
             ), drawer_layout
         )
         setupActionBarWithNavController(mNavController, mAppBarConfiguration)
@@ -143,6 +144,20 @@ class MainActivity : AppCompatActivity() {
                 "evidence_accusation" -> {
                     if (host) {
                         navigationView.inflateMenu(R.menu.evidence_accusation_menu)
+                        with(navigationView.getHeaderView(0)) {
+                            background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
+                            with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {
+                                text = party.mystery.name
+                                setTextColor(colorOnImageOverlay)
+                            }
+                            findViewById<AppCompatTextView>(R.id.nav_header_title_textview).text = party.mystery.name
+                            toggleNavigationView(this, true)
+                        }
+                    }
+                }
+                "solution" -> {
+                    if (host) {
+                        navigationView.inflateMenu(R.menu.solution_menu)
                         with(navigationView.getHeaderView(0)) {
                             background = ContextCompat.getDrawable(context, party.mystery.splashImageId)
                             with (findViewById<AppCompatTextView>(R.id.nav_header_title_textview)) {

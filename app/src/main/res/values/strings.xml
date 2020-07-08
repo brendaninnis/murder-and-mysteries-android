@@ -69,5 +69,6 @@
     <string name="my_character">My Character</string>
     <string name="objectives">Objectives</string>
     <string name="inventory">Inventory</string>
+    <string name="solution">Solution</string>
 
 </resources>
