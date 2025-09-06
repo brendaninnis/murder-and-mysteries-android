@@ -21,7 +21,7 @@ class MysteryDetailViewModel(private val mysteryId: Int) : ViewModel() {
     get() = _mystery
 
     class MysteryDetailViewModelFactory(val mysteryId: Int) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return MysteryDetailViewModel(mysteryId) as T
         }
     }

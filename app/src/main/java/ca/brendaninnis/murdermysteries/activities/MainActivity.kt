@@ -23,12 +23,13 @@ import ca.brendaninnis.murdermysteries.App
 import ca.brendaninnis.murdermysteries.R
 import ca.brendaninnis.murdermysteries.viewmodels.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import ca.brendaninnis.murdermysteries.databinding.ActivityMainBinding
 
 const val host = true
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var mNavController: NavController
     private lateinit var mAppBarConfiguration: AppBarConfiguration
     private val mViewModel: MainActivityViewModel by viewModels()
@@ -42,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Observe night mode preference and set the delegate's local night mode
         (application as App).preferenceRepository
@@ -51,9 +53,9 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         setupNavigation()
-        subscribeToModel(mViewModel, nav_view)
+        subscribeToModel(mViewModel, binding.navView)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -62,8 +64,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
             hideSoftKeyboard()
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         mNavController = findNavController(R.id.nav_host_fragment)
-        nav_view.setupWithNavController(mNavController)
+        binding.navView.setupWithNavController(mNavController)
 
         mAppBarConfiguration = AppBarConfiguration(
             setOf(
@@ -89,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.evidenceFragment,
                 R.id.accusationFragment,
                 R.id.solutionFragment
-            ), drawer_layout
+            ), binding.drawerLayout
         )
         setupActionBarWithNavController(mNavController, mAppBarConfiguration)
     }

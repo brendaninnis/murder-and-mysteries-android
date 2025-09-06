@@ -62,7 +62,7 @@ class CharacterDetailViewModel(private val characterId: Int) : ViewModel() {
         get() = _character
 
     class CharacterDetailViewModelFactory(val characterId: Int) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return CharacterDetailViewModel(characterId) as T
         }
     }

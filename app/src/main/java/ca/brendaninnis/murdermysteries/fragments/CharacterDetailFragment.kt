@@ -35,7 +35,7 @@ class CharacterDetailFragment : Fragment() {
         characterImage = view.findViewById(R.id.character_detail_image)
 
         // Setup shared element transition
-        val transitionInflater = TransitionInflater.from(context)
+        val transitionInflater = TransitionInflater.from(requireContext())
         transitionInflater.inflateTransition(android.R.transition.move).let {
             sharedElementEnterTransition = it
             sharedElementReturnTransition = it
@@ -48,7 +48,7 @@ class CharacterDetailFragment : Fragment() {
                     players[int].name
                 }
 
-                MaterialAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Choose a player")
                     .setItems(choices) { dialog, which ->
                         Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()

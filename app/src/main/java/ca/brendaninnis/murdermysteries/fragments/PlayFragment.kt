@@ -53,7 +53,7 @@ class PlayFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             with(holder.cardView) {
                 findViewById<MaterialButton>(R.id.party_item_cant_go).setOnClickListener {
-                    MaterialAlertDialogBuilder(context)
+                    MaterialAlertDialogBuilder(holder.cardView.context)
                         .setTitle("Confirm RSVP")
                         .setMessage("Are you sure you want to let the host know you will not be attending their party?\n\nThey will have to invite you again if you change your mind.")
                         .setPositiveButton("Ok", null)

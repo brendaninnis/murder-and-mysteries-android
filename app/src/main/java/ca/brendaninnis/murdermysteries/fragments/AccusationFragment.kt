@@ -36,7 +36,7 @@ class AccusationFragment : Fragment() {
                     characters[int].name
                 }
 
-                MaterialAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Choose a character")
                     .setItems(choices) { dialog, which ->
                         Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()
@@ -52,7 +52,7 @@ class AccusationFragment : Fragment() {
                     players[int].name
                 }
 
-                MaterialAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Choose a player")
                     .setItems(choices) { dialog, which ->
                         Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()
@@ -68,7 +68,7 @@ class AccusationFragment : Fragment() {
                     players[int].name
                 }
 
-                MaterialAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Choose a player")
                     .setItems(choices) { dialog, which ->
                         Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()
@@ -84,7 +84,7 @@ class AccusationFragment : Fragment() {
                     players[int].name
                 }
 
-                MaterialAlertDialogBuilder(context)
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Choose a player")
                     .setItems(choices) { dialog, which ->
                         Toast.makeText(context, "Selected ${choices[which]}", Toast.LENGTH_SHORT).show()

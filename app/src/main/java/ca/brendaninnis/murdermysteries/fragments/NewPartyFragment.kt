@@ -20,7 +20,7 @@ import java.util.*
 import ca.brendaninnis.murdermysteries.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.fragment_new_party.*
+// Removed synthetic import - using findViewById instead
 
 class NewPartyFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 

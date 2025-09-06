@@ -32,7 +32,7 @@ class MysteryDetailFragment : Fragment() {
         splashImage = view.findViewById(R.id.mystery_splash_image)
 
         // Setup shared element transition
-        val transitionInflater = TransitionInflater.from(context)
+        val transitionInflater = TransitionInflater.from(requireContext())
         transitionInflater.inflateTransition(android.R.transition.move).let {
             sharedElementEnterTransition = it
             sharedElementReturnTransition = it
@@ -69,7 +69,7 @@ class MysteryDetailFragment : Fragment() {
 
                 // Set the splash image
                 with(splashImage) {
-                    setImageDrawable(context.getDrawable(it.splashImageId))
+                    setImageDrawable(requireContext().getDrawable(it.splashImageId))
                     transitionName = it.name
                 }
 
